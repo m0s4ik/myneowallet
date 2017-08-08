@@ -11,7 +11,7 @@ app.config(['$translateProvider',function($translateProvider){
         suffix: '.json'
     });
 
-    $translateProvider.preferredLanguage('zh-hans');
+    $translateProvider.preferredLanguage('en');
 }]);
 
 app.directive('onReadFile', function ($parse) {
