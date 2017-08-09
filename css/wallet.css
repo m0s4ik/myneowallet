@@ -3,6 +3,7 @@ html,body{
     height: 100%;
     margin: 0;  
     padding: 0;  
+	font-size: 17px;
 }
 
 .main {
@@ -32,14 +33,75 @@ span {
 	-webkit-text-security: disc;
 }
 
+a {
+    color: #689f38;
+}
+.form-control {
+	    height: 43px; 
+		background-color: #fff;
+
+}
+.btn {
+	font-size: 15px;
+}
 .btn-address .caretico {
 margin-left:1em;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/*
 .btn-address button, .btn-address ul li a {
 	text-transform: none;
 }
 
+.btn-light-green {
+    background-color: #8bc34a;
+}
+
+.btn-light-green:hover, .btn-light-green:focus {
+  background-color: #689f38 !important;
+  color: #fff;
+}
+
+.btn-primary {
+    background-color: #8bc34a;
+}
+/*5a95f5  -> 689f38
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #689f38 !important;
+  color: #fff;
+}
+*/
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #8bc34a;
+  box-shadow: 0 1px 0 0 #8bc34a;
+}
+
+.form-control:focus {
+    border-color: #8bc34a;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px#689f38;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #689f38;
+}
+input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=url]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #8bc34a;
+    box-shadow: 0 1px 0 0 #8bc34a;
+	
+}
+input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=search-md]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, textarea.md-textarea:focus:not([readonly])+label {
+     color: #8bc34a; 
+}
+/*4285F4  -> 8bc34a*/
+.input-field .prefix.active {
+  color: #8bc34a;
+  background-color: #fff;
+
+}
 /* hash calc */
 #dropTarget {
 	width: 100%;
@@ -61,7 +123,7 @@ margin-left:1em;
 
 .footer {
 	width:100%;
-	background-color: #3E3F3A;
+	background-color: #689f38;
 	padding-top:3em;
 	padding-bottom: 3em;
 	
@@ -73,3 +135,22 @@ margin-left:1em;
 .footer p {
 	color: #fff;
 }
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #8bc34a;
+}
+
+.navbar-default .navbar-nav>a, .navbar-default .navbar-nav>a:focus, .navbar-default .navbar-nav>a:hover {
+    color: #fff;
+    background-color: #8bc34a;
+}
+
+.navbar-default .navbar-brand {
+    color: #000;
+}
+
+
+.test
+{background-color:#689f38;
+background-color:#64dd17}

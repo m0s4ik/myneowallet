@@ -496,8 +496,8 @@ app.controller("NeoWalletCtrl", function($scope,$translate,$http,$sce,$interval,
 
 	$scope.langSelectIndex = 0;
 	$scope.langs = [
-		{name:"简体中文",lang:"zh-hans"},
 		{name:"English",lang:"en"},
+		{name:"简体中文",lang:"zh-hans"},
 	];
 
 	$scope.txType 		= "128";
