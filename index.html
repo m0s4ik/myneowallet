@@ -13,8 +13,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 	<!-- CSS -->
-	<!-- Bootstrap -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
 
 
 
@@ -30,18 +29,36 @@
 	<script src="https://cdn.bootcss.com/angular-translate/2.15.1/angular-translate.min.js"></script>
 	<script src="https://cdn.bootcss.com/angular-translate/2.15.1/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 	<script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 	<script src="https://cdn.bootcss.com/sql.js/0.4.0/js/sql.js"></script>
 
 
 	<!-- Dropdown.js -->
 	<link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
 
+	<!-- Bootstrap-->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Bootstrap Material Design -->
-
 	<link href="css/mdb.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/wallet.css">
+
+
+	<!-- Material Design Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+
+	<link href="css/wallet.css" rel="stylesheet">
+
+
+	<!-- Material Design Bootstrap -->
+	<script type="text/javascript" src="js/mdb.3.js"></script>
+
 
 
 	<script src="js/vendor/CryptoJS/sha256.js"></script>
@@ -149,24 +166,17 @@
 
 		</div>
 		<br>
-		<div class="tab-content">
+		<div class="card tab-content">
 
 			<!-- #generateWallet tab-->
-			<div class="tab-pane fade active in well infobox" id="generateWallet" ng-controller="GenerateWalletCtrl">
-
-				<div class="row">
-					<div class="col-lg-8 col-md-8 col-sm-6">
-						<h1 translate="GENERATE_WALLET">Generate Wallet</h1>
-					</div>
-				</div>
-
-				<br />
-
+			<div class="tab-pane card-body fade active in well infobox" id="generateWallet" ng-controller="GenerateWalletCtrl">
+				<h4 class="card-title" translate="GENERATE_WALLET">Generate Wallet</h4>
+				<hr>
 				<div class="row" ng-show="showCreateWallet">
 
 					<!-- Column 1 - Select Type of Create -->
 					<div class="form-group col-lg-4 col-md-4 col-sm-6 ">
-						<h4 translate="GW_INFO">What type would you like to create your wallet?</h4>
+						<h3 translate="GW_INFO">What type would you like to create your wallet?</h3>
 
 						<div class="form-group">
 							<input type="radio" ng-model="createType" value="fromRandomPrivateKey" name="radioFromRandomPrivateKey" id="radioFromRandomPrivateKey">
@@ -191,15 +201,15 @@
 						<div class="row">
 							<div class="md-form form-group {{styleStringOfCreatePassword1}}">
 								<div class="col-md-9">
-									
-							
-										<input ng-if="!isDisplayPassword" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
-										 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" type="text" onfocus="this.type='password'" autocomplete="off"
-										/>
-										<input ng-if="isDisplayPassword" type="text" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
-										 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" />
-										 <label class="active" translate="ENTER_PWD_1">Enter a strong password (at least 8 characters):</label>
-									
+
+
+									<input ng-if="!isDisplayPassword" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
+									 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" type="text" onfocus="this.type='password'" autocomplete="off"
+									/>
+									<input ng-if="isDisplayPassword" type="text" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
+									 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" />
+									<label class="active" translate="ENTER_PWD_1">Enter a strong password (at least 8 characters):</label>
+
 								</div>
 								<div class="col-md-3">
 									<span class="input-group-btn" ng-if="!isDisplayPassword">
@@ -213,26 +223,26 @@
 
 						</div>
 						<div class="row">
-							
-								<div class="md-form form-group {{styleStringOfCreatePassword2}}" ng-if="!isDisplayPassword">
+
+							<div class="md-form form-group {{styleStringOfCreatePassword2}}" ng-if="!isDisplayPassword">
 								<div class="col-md-9">
 									<input class="form-control" ng-change="changeCreatePassword2()" ng-model="$parent.createPassword2" placeholder="{{ 'RE_ENTER_PASSWORD' | translate }}"
 									 type="text" onfocus="this.type='password'" autocomplete="off" id="repasswordwallet" />
-									 	<label class="active" translate="RE_ENTER_PASSWORD"  >Re-Enter password:</label>
+									<label class="active" translate="RE_ENTER_PASSWORD">Re-Enter password:</label>
 								</div>
 							</div>
 						</div>
 
 						<!-- fromRandomPrivateKey -->
 						<div class="row">
-						<div id="fromRandomPrivateKey" ng-if="createType=='fromRandomPrivateKey'">
-							<br />
+							<div id="fromRandomPrivateKey" ng-if="createType=='fromRandomPrivateKey'">
+								<br />
 
-							<div class="form-group" ng-if="showBtnGenerateWallet">
-								<button class="btn btn-light-green btn-block" ng-click="generateWalletFileFromRandomPrivateKey()" translate="GENERATE_WALLET">Generate Wallet</button>
+								<div class="form-group" ng-if="showBtnGenerateWallet">
+									<button class="btn btn-light-green btn-block" ng-click="generateWalletFileFromRandomPrivateKey()" translate="GENERATE_WALLET">Generate Wallet</button>
+								</div>
 							</div>
 						</div>
-</div>
 						<!-- fromPrivateKey -->
 						<div id="fromPrivateKey" ng-if="createType=='fromPrivateKey'">
 							<div class="form-group">
@@ -290,15 +300,10 @@
 			</div>
 
 			<!-- #sendTransaction tab-->
-			<div class="tab-pane fade well infobox" id="sendTransaction">
+			<div class="tab-pane fade well infobox card-body" id="sendTransaction">
+				<h4 class="card-title" translate="SEND_TRANSACTION">Send Transaction</h4>
+				<hr>
 
-				<div class="row">
-					<div class="col-lg-8 col-md-8 col-sm-6">
-						<h1 translate="SEND_TRANSACTION">Send Transaction</h1>
-					</div>
-				</div>
-
-				<br />
 
 				<div class="row " ng-show="showOpenWallet">
 					<!-- Column 1 - Select Type of Key -->
@@ -695,14 +700,12 @@
 		</div>
 
 		<!-- #signatureData tab-->
-		<div class="tab-pane fade" id="signatureData" ng-controller="SignatureDataCtrl">
-			<div class="well infobox">
+		<div class="card tab-pane fade" id="signatureData" ng-controller="SignatureDataCtrl">
+			<div class="well infobox card-body">
+				<h4 class="card-title" translate="SIGNATURE_DATA">Signature Data</h4>
+				<hr>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-						<h1 translate="SIGNATURE_DATA">Signature Data</h1>
-
-
-						<hr />
 
 
 						<div class="form-group">
@@ -734,14 +737,13 @@
 		</div>
 
 		<!-- #tools tab-->
-		<div class="tab-pane fade" id="tools" ng-controller="ToolsCtrl">
-			<div class="well infobox">
+		<div class=" card tab-pane fade" id="tools" ng-controller="ToolsCtrl">
+			<div class="well infobox card-body">
+				<h4 class="card-title" translate="TOOLS">Tools</h4>
+				<hr>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-						<h1 translate="TOOLS">Tools</h1>
 
-
-						<hr />
 						<!-- WIF -->
 						<div class="row">
 							<div class="col-md-9">
@@ -900,15 +902,19 @@
 	</div>
 
 	<footer class="footer" role="footer" aria-label="footer">
-		<div>
-
-			<div class="col-sm-12">
-				<p align="center">
-					MyNEOWallet (c) 2017. <a href="https://github.com/m0s4ik/myneowallet">Github</a>
-				</p>
+	
+			<div class="col-sm-6 text-left">
+			<p >
+				Donate:
+				<h4><a target="_blank" href="http://www.antchain.org:80/address/ARyLLDH4aKdXnxGHPZJy18hJ6on7Rx6yCh">ARyLLDH4aKdXnxGHPZJy18hJ6on7Rx6yCh</a><h4>
 			</div>
-
+		<div class="col-sm-6 text-right">
+			<p>
+				MyNEOWallet (c) 2017. <a href="https://github.com/m0s4ik/myneowallet">Github</a>
+			</p>
 		</div>
+
+		
 	</footer>
 
 	<script>

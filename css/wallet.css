@@ -4,6 +4,7 @@ html,body{
     margin: 0;  
     padding: 0;  
 	font-size: 17px;
+	background-color:#eee;
 }
 
 .main {
@@ -41,9 +42,7 @@ a {
 		background-color: #fff;
 
 }
-.btn {
-	font-size: 15px;
-}
+
 .btn-address .caretico {
 margin-left:1em;
 }
@@ -55,6 +54,11 @@ margin-left:1em;
 }
 
 /*
+
+.btn {
+	font-size: 15px;
+}
+
 .btn-address button, .btn-address ul li a {
 	text-transform: none;
 }
@@ -124,8 +128,8 @@ input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:n
 .footer {
 	width:100%;
 	background-color: #689f38;
-	padding-top:3em;
-	padding-bottom: 3em;
+	padding-top:1em;
+	padding-bottom: 1em;
 	
 	height: 100px;  
     margin-top: -100px;
@@ -149,7 +153,10 @@ input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:n
 .navbar-default .navbar-brand {
     color: #000;
 }
-
+.navbar-brand{
+	font-size:22px;
+	font-weight:500;
+}
 
 .test
 {background-color:#689f38;
