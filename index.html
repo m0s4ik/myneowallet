@@ -70,8 +70,9 @@
 		function setTabFromURL() {
 			var url = document.location.toString();
 			if (url.match('#')) {
+			if(url.split('#')[1] != ""){
 				$('#navbar-main a[href="#' + url.split('#')[1] + '"]').tab('show');
-			}
+			}}
 		}
 
 		window.onload = setTabFromURL;
@@ -743,7 +744,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="md-form form-group text-center">
-									<button type="button" class="btn btn-light-green btn-raised " ng-click="getPrivateKey()" translate="BTN_GENERATE_PRIVATEKEY">&nbspGenerate PrivateKey&nbsp</button>
+									<button type="button" class="btn btn-light-green btn-block" ng-click="getPrivateKey()" translate="BTN_GENERATE_PRIVATEKEY">&nbspGenerate PrivateKey&nbsp</button>
 								</div>
 							</div>
 						</div>
@@ -759,7 +760,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="md-form form-group text-center">
-									<button type="button" class="btn btn-light-green" ng-click="getPublicKey(0)" translate="BTN_GENERATE_PUBLICKEY">&nbsp&nbspGenerate PublicKey&nbsp&nbsp</button>
+									<button type="button" class="btn btn-light-green btn-block" ng-click="getPublicKey(0)" translate="BTN_GENERATE_PUBLICKEY">&nbsp&nbspGenerate PublicKey&nbsp&nbsp</button>
 								</div>
 							</div>
 						</div>
@@ -776,7 +777,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="md-form form-group text-center">
-									<button type="button" class="btn btn-light-green" ng-click="getPublicKeyEncoded()" translate="BTN_GENERATE_PUBLICKEY_ENCODE">&nbsp&nbsp&nbsp&nbspPublicKey Encode&nbsp&nbsp&nbsp&nbsp</button>
+									<button type="button" class="btn btn-light-green btn-block" ng-click="getPublicKeyEncoded()" translate="BTN_GENERATE_PUBLICKEY_ENCODE">&nbsp&nbsp&nbsp&nbspPublicKey Encode&nbsp&nbsp&nbsp&nbsp</button>
 								</div>
 							</div>
 						</div>
@@ -792,41 +793,51 @@
 							</div>
 							<div class="col-md-3">
 								<div class="md-form form-group text-center">
-									<button type="button" class="btn btn-light-green" ng-click="getScript()" translate="BTN_GENERATE_SCRIPT">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGenerate Script&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+									<button type="button" class="btn btn-light-green btn-block" ng-click="getScript()" translate="BTN_GENERATE_SCRIPT">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGenerate Script&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
 								</div>
 							</div>
 						</div>
 
 						<!-- script -->
-						<div class="form-group">
-							<label class="control-label" translate="SCRIPT">Script</label><br />
-							<div class="input-group">
-								<input type="text" class="form-control" ng-model="script" name="script" placeholder="210276e8dfdf8f0b25ea96fe0fbe179d727970c12fe340ef2ac8121623a78e6eb4a2ac"
+						<div class="row">
+							<div class="col-md-9">
+								<div class="md-form">
+									<input type="text" class="form-control" ng-model="script" name="script" placeholder="210276e8dfdf8f0b25ea96fe0fbe179d727970c12fe340ef2ac8121623a78e6eb4a2ac"
 								 aria-label="script" />
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-light-green" ng-click="getScriptHash()" translate="BTN_GENERATE_SCRIPTHASH">Generate ScriptHash</button>
-								</span>
+									<label class="control-label"  translate="SCRIPT">Script</label>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="md-form form-group text-center">
+									<button type="button" class="btn btn-light-green btn-block" ng-click="getScriptHash()" translate="BTN_GENERATE_SCRIPTHASH">Generate ScriptHash</button>
+								</div>
 							</div>
 						</div>
 
 						<!-- scriptHash -->
-						<div class="form-group">
-							<label class="control-label" translate="SCRIPTHASH">ScriptHash</label><br />
-							<div class="input-group">
-								<input type="text" class="form-control" ng-model="scriptHash" name="scriptHash" placeholder="c2225536c82a70dd3688d8467b23e2b60d4785a1"
+							<div class="row">
+							<div class="col-md-9">
+								<div class="md-form">
+										<input type="text" class="form-control" ng-model="scriptHash" name="scriptHash" placeholder="c2225536c82a70dd3688d8467b23e2b60d4785a1"
 								 aria-label="scriptHash" />
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-light-green" ng-click="getAddress()" translate="BTN_GENERATE_ADDRESS">&nbsp&nbsp&nbsp&nbspGenerate Address&nbsp&nbsp&nbsp&nbsp</button>
-								</span>
+									<label class="control-label" translate="SCRIPTHASH">ScriptHash</label>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="md-form form-group text-center">
+								<button type="button" class="btn btn-light-green btn-block" ng-click="getAddress()" translate="BTN_GENERATE_ADDRESS">&nbsp&nbsp&nbsp&nbspGenerate Address&nbsp&nbsp&nbsp&nbsp</button>
+								</div>
 							</div>
 						</div>
 
 						<!-- Address -->
-						<div class="form-group">
-							<label class="control-label" translate="ADDRESS">Address</label><br />
+					<div class="row">
+							<div class="col-md-12">
+								<div class="md-form">
+							<label class="control-label" translate="ADDRESS">Address</label>
 							<input type="text" class="form-control" ng-model="address" name="address" placeholder="AZUMsCifwXMr3kMXwKuNwge9ZjhFuMEHwM"
 							 aria-label="address" />
-						</div>
+						</div></div></div>
 
 					</div>
 				</div>
