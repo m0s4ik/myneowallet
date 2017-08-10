@@ -417,7 +417,7 @@ app.controller("NeoWalletCtrl", function($scope,$translate,$http,$sce,$interval,
 			hostProvider : "otcgo.cn",
 			restapi_host : "http://api.otcgo.cn",
 			restapi_port : "10332",
-			webapi_host  : "http://api.otcgo.cn",
+			webapi_host  : "http://www.antchain.org",
 			webapi_port  : "80",
 		},
 		
@@ -821,6 +821,15 @@ app.controller("NeoWalletCtrl", function($scope,$translate,$http,$sce,$interval,
 					$scope.coins = [];
 
 					for ( i=0; i<res.data.length; i++ ) {
+						
+						//Force Translate Coin Name
+						if ($scope.langs[$scope.langSelectIndex].lang == "en")
+						{
+							if(res.data[i].name == "小蚁股"){
+								res.data[i].name = "NeoCoin";
+							}
+						}
+				
 						$scope.coins[i] = res.data[i];
 					}
 

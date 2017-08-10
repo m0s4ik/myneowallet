@@ -41,9 +41,6 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- Bootstrap Material Design -->
-	<link href="css/mdb.min.css" rel="stylesheet">
-
 
 	<!-- Material Design Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -51,15 +48,11 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-
+	<!-- Material Design  -->
+	<link href="css/mdb.min.css" rel="stylesheet">
+	<script type="text/javascript" src="js/vendor/mdb.3.js"></script>
 
 	<link href="css/wallet.css" rel="stylesheet">
-
-
-	<!-- Material Design Bootstrap -->
-	<script type="text/javascript" src="js/mdb.3.js"></script>
-
-
 
 	<script src="js/vendor/CryptoJS/sha256.js"></script>
 	<script src="js/vendor/CryptoJS/ripemd160.js"></script>
@@ -112,6 +105,7 @@
 				<div class="container">
 					<div class="navbar-header">
 						<a href="#" class="navbar-brand">MyNEOWallet</a>
+						<span class="beta">Beta &nbsp;&nbsp;</span>
 						<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -176,8 +170,8 @@
 
 					<!-- Column 1 - Select Type of Create -->
 					<div class="form-group col-lg-4 col-md-4 col-sm-6 ">
-						<h3 translate="GW_INFO">What type would you like to create your wallet?</h3>
-
+						<label translate="GW_INFO">What type would you like to create your wallet?</label>
+<br><br>
 						<div class="form-group">
 							<input type="radio" ng-model="createType" value="fromRandomPrivateKey" name="radioFromRandomPrivateKey" id="radioFromRandomPrivateKey">
 							<label for="radioFromRandomPrivateKey" translate="NEW_WALLET">New Wallet</label>
@@ -197,18 +191,19 @@
 					<!-- Column 1 - Select Type of Key -->
 
 					<div class="col-lg-8 col-md-8 col-sm-6">
+					
 						<!-- password confirm -->
 						<div class="row">
-							<div class="md-form form-group {{styleStringOfCreatePassword1}}">
+							<div class="form-group {{styleStringOfCreatePassword1}}">
 								<div class="col-md-9">
-
+								<label class="control-label" translate="ENTER_PWD_1">Enter a strong password (at least 8 characters):</label>
 
 									<input ng-if="!isDisplayPassword" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
 									 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" type="text" onfocus="this.type='password'" autocomplete="off"
 									/>
 									<input ng-if="isDisplayPassword" type="text" class="form-control" ng-change="changeCreatePassword1()" ng-model="$parent.createPassword1"
 									 placeholder="{{ 'PASSWORD' | translate }}" aria-label="password" />
-									<label class="active" translate="ENTER_PWD_1">Enter a strong password (at least 8 characters):</label>
+								
 
 								</div>
 								<div class="col-md-3">
@@ -223,12 +218,12 @@
 
 						</div>
 						<div class="row">
-
-							<div class="md-form form-group {{styleStringOfCreatePassword2}}" ng-if="!isDisplayPassword">
+							<div class="form-group {{styleStringOfCreatePassword2}}" ng-if="!isDisplayPassword">
 								<div class="col-md-9">
+									<label class="active" translate="RE_ENTER_PASSWORD">Re-Enter password:</label>
 									<input class="form-control" ng-change="changeCreatePassword2()" ng-model="$parent.createPassword2" placeholder="{{ 'RE_ENTER_PASSWORD' | translate }}"
 									 type="text" onfocus="this.type='password'" autocomplete="off" id="repasswordwallet" />
-									<label class="active" translate="RE_ENTER_PASSWORD">Re-Enter password:</label>
+									
 								</div>
 							</div>
 						</div>
@@ -354,6 +349,7 @@
 							<button class="btn btn-light-green btn-block" ng-click="openFileDialog()" translate="BTN_SELECT_WALLET_FILE">Select Wallet File...</button >
 						
 						<div ng-if="requirePass" class="form-group has-success">
+							<br>
 							<label class="control-label" translate="MT_YOUR_WALLET_IS_ENCRYPTED">Your wallet is encrypted. Please enter the password:</label>
 							<input class="form-control show-password" ng-change="onFilePassChange()" ng-model="$parent.$parent.filePassword" placeholder="{{ 'PASSWORD' | translate }}" type="text" onfocus="this.type='password'" autocomplete="off"/>
 						</div>
@@ -429,6 +425,17 @@
 					</div>
 
 					<div>
+						<h3 translate="MT_ACCOUNT_BALANCE">Account Balance</h3><br />
+						<div class="form-group text-center">
+							 <label ng-repeat="coin in coins">{{coin.balance}} {{coin.name}}</label>
+						</div>
+					</div>
+
+	<div>
+						<hr />
+					</div>
+
+					<div>
 						<h3 translate="MT_ACCOUNT_INFO">Account Info</h3> <br />
 						<div class="form-group">
 							<label class="control-label" translate="ADDRESS">Address: </label><br />
@@ -445,25 +452,7 @@
 						</div>
 					</div>
 
-					<div>
-						<hr />
-					</div>
-
-					<div>
-						<h3 translate="MT_ACCOUNT_BALANCE">Account Balance</h3><br />
-						<div class="form-group">
-
-							<table class="table">
-								<tbody>
-									<tr ng-repeat="coin in coins">
-										<td align="right" width="35%">{{coin.name}}</td>
-										<td align="left">{{coin.balance}}</td>
-									</tr>
-								</tbody>
-							</table>
-
-						</div>
-					</div>
+				
 
 				</div>
 
@@ -778,26 +767,34 @@
 
 
 						<!-- publicKey -->
-						<div class="form-group">
-							<label class="control-label" translate="PUBLIC_KEY">Public Key</label><br />
-							<div class="input-group">
-								<input type="text" class="form-control" ng-model="publicKey" name="publicKey" placeholder="049fbb47841f7338c0c654addd6225995642b5b6d492413563f7f8755ba83c0ecd645b8145bfbb0d261a398795b88d0f83fecf9773a43c762ab5267b19196c0a93"
+						<div class="row">
+							<div class="col-md-9">
+								<div class="md-form">
+									<input type="text" class="form-control" ng-model="publicKey" name="publicKey" placeholder="049fbb47841f7338c0c654addd6225995642b5b6d492413563f7f8755ba83c0ecd645b8145bfbb0d261a398795b88d0f83fecf9773a43c762ab5267b19196c0a93"
 								 aria-label="publicKey" />
-								<span class="input-group-btn">
+									<label class="control-label" translate="PUBLIC_KEY">Public Key</label>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="md-form form-group text-center">
 									<button type="button" class="btn btn-light-green" ng-click="getPublicKeyEncoded()" translate="BTN_GENERATE_PUBLICKEY_ENCODE">&nbsp&nbsp&nbsp&nbspPublicKey Encode&nbsp&nbsp&nbsp&nbsp</button>
-								</span>
+								</div>
 							</div>
 						</div>
 
 						<!-- publicKeyEncode -->
-						<div class="form-group">
-							<label class="control-label" translate="PUBLIC_KEY_ENCODED">Public Key Encoded</label><br />
-							<div class="input-group">
-								<input type="text" class="form-control" ng-model="publicKeyEncode" name="publicKeyEncode" placeholder="0276e8dfdf8f0b25ea96fe0fbe179d727970c12fe340ef2ac8121623a78e6eb4a2"
+						<div class="row">
+							<div class="col-md-9">
+								<div class="md-form">
+									<input type="text" class="form-control" ng-model="publicKeyEncode" name="publicKeyEncode" placeholder="0276e8dfdf8f0b25ea96fe0fbe179d727970c12fe340ef2ac8121623a78e6eb4a2"
 								 aria-label="publicKeyEncode" />
-								<span class="input-group-btn">
+									<label class="control-label" translate="PUBLIC_KEY_ENCODED">Public Key Encoded</label>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="md-form form-group text-center">
 									<button type="button" class="btn btn-light-green" ng-click="getScript()" translate="BTN_GENERATE_SCRIPT">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGenerate Script&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-								</span>
+								</div>
 							</div>
 						</div>
 
@@ -910,23 +907,23 @@
 			</div>
 		<div class="col-sm-6 text-right">
 			<p>
-				MyNEOWallet (c) 2017. <a href="https://github.com/m0s4ik/myneowallet">Github</a>
+				MyNEOWallet (c) 2017.<br> <a href="https://github.com/m0s4ik/myneowallet">Github</a>
 			</p>
 		</div>
 
 		
 	</footer>
 
-	<script>
-		var _hmt = _hmt || [];
-		(function () {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?dc46e6b584efcf293a6a9805b90b3f35";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
 
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-104419508-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
