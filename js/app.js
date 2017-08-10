@@ -192,7 +192,7 @@ app.controller("hashCalcCtrl", function($scope,$sce) {
 	}
 });
 */
-app.controller("ToolsCtrl", function($scope,$sce) {
+app.controller("ToolsCtrl", function($scope,$translate,$sce) {
 	$scope.wif = "";
 	$scope.privateKey = "";
 	$scope.publicKey = "";
@@ -328,7 +328,7 @@ app.controller("GenerateWalletCtrl", function($scope,$translate,$sce) {
     };
 
     $scope.nextstep = function () {
-        $('#mainTab a[href="#sendTransaction"]').tab('show');
+        $('#navbar-main a[href="#sendTransaction"]').tab('show');
     };
 
 	$scope.generateWalletFileFromRandomPrivateKey = function () {
